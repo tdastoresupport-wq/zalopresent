@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+/* Font nhúng offline — không cần mạng phòng học */
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro-800.woff2") format("woff2");
+}
+
+:root {
+  --zalo-blue: #0068ff;
+  --light-bg: #f7f9fc;
+  --white: #ffffff;
+  --text: #111827;
+  --text-secondary: #667085;
+  --border: #e5e7eb;
+  --dark-bg: #07111f;
+  --dark-surface: #0e1b2a;
+  --warning: #f59e0b;
+  --ease-zalo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-zalo: var(--zalo-blue);
+  --color-ink: var(--text);
+  --color-muted: var(--text-secondary);
+  --color-line: var(--border);
+  --color-night: var(--dark-bg);
+  --color-night2: var(--dark-surface);
+  --color-warn: var(--warning);
+  --font-sans: "Be Vietnam Pro", "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--light-bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ponytail: native scroll-snap, no fake scroller */
+.deck {
+  height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.slide {
+  min-height: 100svh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow-x: clip;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 80px;
+  padding-block: 72px;
+}
+
+@media (max-width: 1279px) {
+  .wrap { padding-inline: 48px; }
+}
+@media (max-width: 767px) {
+  .wrap { padding-inline: 20px; padding-block: 56px; }
+}
+
+[data-theme="dark"], [data-theme="security"] { color: #fff; }
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s var(--ease-zalo), border-color 0.25s var(--ease-zalo);
+}
+@media (hover: hover) {
+  .card:hover { transform: translateY(-6px); border-color: var(--zalo-blue); }
+}
+.card-dark {
+  background: var(--dark-surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--zalo-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .deck { height: auto; overflow: visible; }
+  .chrome { display: none !important; }
+  .slide { page-break-after: always; min-height: 100vh; }
+}

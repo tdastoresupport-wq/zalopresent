@@ -1,0 +1,15 @@
+Slide,Asset cần có,Loại,Ưu tiên,Gợi ý
+01,Có logo Zalo + hero image,Brand + Photo,MUST,Zalo official hero
+01,Smartphone mockup,UI/MOCKUP,MUST,Tự dựng bằng CSS hoặc mockup
+02,Ảnh/visual timeline 2012-2026,Graphic,MUST,Tự thiết kế timeline
+03,Screenshot giao diện Zalo,UI reference,MUST,Tự chụp màn hình Zalo
+03,Ảnh người dùng smartphone,Photo,SHOULD,Pexels
+04,Số liệu + avatar/network,Graphic,MUST,Tự dựng bằng CSS/SVG
+05,Feature icons,Icon,MUST,Lucide + custom icons
+06,Ecosystem diagram,Graphic,MUST,Tự vẽ SVG/CSS
+07,Ảnh học tập/công việc,Photo,SHOULD,Pexels hoặc Zalo official
+08,Ảnh bảo mật/điện thoại bị khóa,Photo,MUST,Pexels
+08,Icon scam/privacy/fake news,Icon,MUST,Lucide
+09,Shield / safety visual,Graphic,MUST,Tự dựng SVG/CSS
+10,Logo + nền sạch,Brand,MUST,Zalo/VNG source
+10,Text credit,TEXT,MUST,Bài thuyết trình của Tổ 6 / Web Slide / Designed by Đức Anh
