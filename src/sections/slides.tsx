@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import {
+  ASSIGNMENTS,
   BENEFITS,
   CHECKLIST,
   ECOSYSTEM,
@@ -410,10 +411,27 @@ export function Slide10() {
           Zalo đem lại nhiều tiện ích trong giao tiếp, học tập và công việc,
           nhưng hiệu quả phụ thuộc vào cách người dùng sử dụng.
         </p>
-        <div data-reveal className="mt-12 space-y-1 text-sm text-[#667085]">
+        <div data-reveal className="card mx-auto mt-10 max-w-2xl p-6 text-left md:p-8">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-[#0068FF]">
+            Phân công công việc · Môn Tin học
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {ASSIGNMENTS.map((a) => (
+              <div key={a.task} className="flex items-start gap-3 rounded-2xl bg-[#F7F9FC] p-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#0068FF]/10 text-[#0068FF]">
+                  <Icon name={a.icon} size={22} />
+                </span>
+                <div>
+                  <p className="text-sm font-extrabold tracking-wide">{a.task}</p>
+                  <p className="mt-0.5 font-semibold text-[#111827]">{a.names}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div data-reveal className="mt-10 space-y-1 text-sm text-[#667085]">
           <p className="font-semibold text-[#111827]">Bài thuyết trình của Tổ 6</p>
           <p>WEB SLIDE</p>
-          <p>Designed by Đức Anh</p>
         </div>
       </div>
     </Shell>

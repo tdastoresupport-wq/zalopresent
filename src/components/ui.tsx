@@ -9,10 +9,14 @@ import {
   FlaskConical,
   Heart,
   Home,
+  Image as ImageIcon,
   Megaphone,
   MessageCircle,
+  Mic,
+  PenTool,
   Phone,
   School,
+  Search,
   ShieldCheck,
   ShoppingBag,
   Smartphone,
@@ -50,6 +54,10 @@ const ICONS = {
   check: Check,
   shield: ShieldCheck,
   smartphone: Smartphone,
+  search: Search,
+  image: ImageIcon,
+  pen: PenTool,
+  mic: Mic,
 } as const;
 
 export type IconName = keyof typeof ICONS;

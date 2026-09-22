@@ -72,3 +72,10 @@ export const CHECKLIST = [
   { title: "KIỂM CHỨNG", desc: "Đọc nguồn và kiểm tra trước khi chuyển tiếp tin." },
   { title: "BẢO VỆ TÀI KHOẢN", desc: "Bật các lớp bảo mật phù hợp và theo dõi hoạt động tài khoản." },
 ] as const;
+
+export const ASSIGNMENTS = [
+  { task: "TÌM KIẾM THÔNG TIN", names: "Bình Minh, Hưng Thái, Duy Anh", icon: "search" },
+  { task: "TÌM KIẾM HÌNH ẢNH", names: "Bảo Hân, Tuấn Quang", icon: "image" },
+  { task: "LÀM SLIDE", names: "Đức Anh", icon: "pen" },
+  { task: "THUYẾT TRÌNH", names: "Minh Nhật B, Thanh Hưng", icon: "mic" },
+] as const;
