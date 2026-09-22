@@ -76,6 +76,6 @@ export const CHECKLIST = [
 export const ASSIGNMENTS = [
   { task: "TÌM KIẾM THÔNG TIN", names: "Bình Minh, Hưng Thái, Duy Anh", icon: "search" },
   { task: "TÌM KIẾM HÌNH ẢNH", names: "Bảo Hân, Tuấn Quang", icon: "image" },
-  { task: "LÀM SLIDE", names: "Đức Anh", icon: "pen" },
+  { task: "WEB SLIDE", names: "Đức Anh", icon: "pen" },
   { task: "THUYẾT TRÌNH", names: "Minh Nhật B, Thanh Hưng", icon: "mic" },
 ] as const;
