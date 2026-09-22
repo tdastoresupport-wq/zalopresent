@@ -57,11 +57,11 @@ export const BENEFITS = [
 ] as const;
 
 export const RISKS = [
-  { title: "LỪA ĐẢO", desc: "Kẻ xấu có thể gửi link giả, giả danh người quen hoặc yêu cầu chuyển tiền.", icon: "alert" },
-  { title: "GIẢ MẠO", desc: "Tài khoản hoặc danh tính có thể bị sử dụng để tạo lòng tin và lừa người nhận.", icon: "mask" },
-  { title: "TIN GIẢ", desc: "Nội dung chưa được kiểm chứng có thể được chuyển tiếp nhanh trong các nhóm.", icon: "megaphone" },
-  { title: "QUYỀN RIÊNG TƯ", desc: "Thông tin cá nhân, hình ảnh hoặc nội dung trò chuyện cần được kiểm soát và chia sẻ có chọn lọc.", icon: "lock" },
-  { title: "SỬ DỤNG QUÁ MỨC", desc: "Dùng mạng xã hội quá lâu có thể chiếm nhiều thời gian học tập, nghỉ ngơi và sinh hoạt.", icon: "phone" },
+  { title: "LỪA ĐẢO", desc: "Kẻ xấu có thể gửi link giả, giả danh người quen hoặc yêu cầu chuyển tiền.", icon: "alert", img: "/images/slide08-scam.jpg", alt: "Người đàn ông lo lắng khi phát hiện dấu hiệu lừa đảo trên điện thoại" },
+  { title: "GIẢ MẠO", desc: "Tài khoản hoặc danh tính có thể bị sử dụng để tạo lòng tin và lừa người nhận.", icon: "mask", img: "/images/slide08-fake.jpg", alt: "Người đeo mặt nạ ẩn danh cầm laptop trên phố" },
+  { title: "TIN GIẢ", desc: "Nội dung chưa được kiểm chứng có thể được chuyển tiếp nhanh trong các nhóm.", icon: "megaphone", img: "/images/slide08-news.jpg", alt: "Loa minh họa khái niệm tin giả" },
+  { title: "QUYỀN RIÊNG TƯ", desc: "Thông tin cá nhân, hình ảnh hoặc nội dung trò chuyện cần được kiểm soát và chia sẻ có chọn lọc.", icon: "lock", img: "/images/slide08-privacy.jpg", alt: "Bàn tay che ống kính, biểu tượng quyền riêng tư" },
+  { title: "SỬ DỤNG QUÁ MỨC", desc: "Dùng mạng xã hội quá lâu có thể chiếm nhiều thời gian học tập, nghỉ ngơi và sinh hoạt.", icon: "phone", img: "/images/slide08-overuse.jpg", alt: "Thiếu niên nằm dán mắt vào điện thoại" },
 ] as const;
 
 export const CHECKLIST = [

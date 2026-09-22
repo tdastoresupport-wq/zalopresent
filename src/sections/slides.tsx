@@ -159,6 +159,22 @@ export function Slide04() {
           Quy mô người dùng và tần suất nhắn tin cho thấy Zalo đã trở thành một công cụ
           liên lạc quen thuộc với người dùng tại Việt Nam.
         </p>
+        <div data-reveal aria-hidden="true" className="mt-6 flex items-center justify-center">
+          {["An", "Bình", "Chi", "Dũng", "Hà"].map((n, i) => (
+            <span
+              key={n}
+              title={n}
+              className={`grid h-11 w-11 place-items-center rounded-full border-2 border-white text-sm font-bold text-white shadow ${
+                i === 0 ? "bg-[#0068FF]" : i === 1 ? "bg-[#00B2FF]" : i === 2 ? "bg-[#7C3AED]" : i === 3 ? "bg-[#059669]" : "bg-[#F59E0B]"
+              } ${i > 0 ? "-ml-3" : ""}`}
+            >
+              {n[0]}
+            </span>
+          ))}
+          <span className="-ml-3 grid h-11 min-w-11 place-items-center rounded-full border-2 border-white bg-[#111827] px-2 text-xs font-bold text-white shadow">
+            81M+
+          </span>
+        </div>
         <div className="mx-auto mt-10 grid max-w-3xl gap-6 md:grid-cols-2">
           <div data-reveal className="card p-6">
             <p className="text-5xl font-extrabold tabular-nums text-[#0068FF]">
@@ -311,12 +327,16 @@ export function Slide08() {
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {RISKS.map((r) => (
-            <article key={r.title} data-reveal className="card-dark p-6 last:sm:col-span-2 lg:last:col-span-1">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#F59E0B]/15 text-[#F59E0B]">
-                <Icon name={r.icon} size={24} />
-              </span>
-              <h3 className="mt-4 text-xl font-extrabold text-white">{r.title}</h3>
-              <p className="mt-1 text-white/70">{r.desc}</p>
+            <article key={r.title} data-reveal className="card-dark overflow-hidden last:sm:col-span-2 lg:last:col-span-1">
+              <img src={r.img} alt={r.alt} loading="lazy" className="aspect-video w-full object-cover" />
+              <div className="p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#F59E0B]/15 text-[#F59E0B]">
+                  <Icon name={r.icon} size={24} />
+                </span>
+                <h3 className="mt-4 text-xl font-extrabold text-white">{r.title}</h3>
+                <p className="mt-1 text-white/70">{r.desc}</p>
+                <p className="mt-3 text-xs text-white/40">Ảnh: Pexels</p>
+              </div>
             </article>
           ))}
         </div>
@@ -330,7 +350,7 @@ export function Slide09() {
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} dark label="Sử dụng thông minh">
       <div className="grid items-center gap-10 lg:grid-cols-[45%_55%]">
-        <div data-reveal className="flex flex-col items-center gap-6">
+        <div data-reveal className="flex flex-col items-center gap-10">
           <Shield />
           <figure className="w-full max-w-sm">
             <img
@@ -343,7 +363,7 @@ export function Slide09() {
           </figure>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">09 · An toàn</p>
+          <p className="text-sm font-bold uppercase tracking-widest text-[#8AB4FF]">09 · An toàn</p>
           <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight text-white md:text-[56px]">
             Checklist 6 điều
           </h2>
@@ -370,7 +390,15 @@ export function Slide10() {
   const m = SLIDES[9];
   return (
     <Shell id={m.id} theme={m.theme} label="Kết thúc">
-      <div className="mx-auto max-w-2xl text-center">
+      <img
+        src="/people.1648f8db.webp"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-10"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F9FC]/70 via-transparent to-[#F7F9FC]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-2xl text-center">
         <img data-reveal src="/zalo-1-logo-png-transparent.png" alt="Logo Zalo" loading="lazy" className="mx-auto h-16 object-contain md:h-20" />
         <h2 data-reveal className="mt-4 text-[64px] font-extrabold leading-none tracking-tight md:text-[96px]">
           ZALO

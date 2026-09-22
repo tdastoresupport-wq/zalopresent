@@ -4,6 +4,7 @@ import {
   Briefcase,
   Building2,
   Check,
+  Drama,
   FileText,
   FlaskConical,
   Heart,
@@ -14,7 +15,6 @@ import {
   School,
   ShieldCheck,
   ShoppingBag,
-  Siren,
   Smartphone,
   Store,
   TriangleAlert,
@@ -41,7 +41,7 @@ const ICONS = {
   book: BookOpen,
   bell: Bell,
   alert: TriangleAlert,
-  mask: Siren,
+  mask: Drama,
   megaphone: Megaphone,
   lock: Lock,
   flask: FlaskConical,
@@ -127,9 +127,9 @@ export function NetworkBg() {
 export function Shield() {
   return (
     <div className="relative grid place-items-center" role="img" aria-label="Khiên bảo mật">
-      <span className="absolute h-56 w-56 animate-ping rounded-full bg-[#0068FF]/10 md:h-64 md:w-64" />
-      <span className="absolute h-56 w-56 rounded-full border border-[#0068FF]/30 md:h-64 md:w-64" />
-      <ShieldCheck size={120} className="relative text-[#0068FF]" strokeWidth={1.5} />
+      <span className="absolute h-40 w-40 animate-ping rounded-full bg-[#0068FF]/10" />
+      <span className="absolute h-40 w-40 rounded-full border border-[#0068FF]/30" />
+      <ShieldCheck size={96} className="relative text-[#0068FF]" strokeWidth={1.5} />
     </div>
   );
 }

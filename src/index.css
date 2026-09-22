@@ -84,7 +84,6 @@ body {
   width: 100%;
   scroll-snap-align: start;
   display: flex;
-  align-items: center;
   position: relative;
   overflow-x: clip;
 }
@@ -92,7 +91,8 @@ body {
 .wrap {
   width: 100%;
   max-width: 1440px;
-  margin-inline: auto;
+  /* margin auto: vừa thì canh giữa, dài thì tràn xuống dưới, không tràn lên đè nav */
+  margin: auto;
   padding-inline: 80px;
   padding-block: 72px;
 }
