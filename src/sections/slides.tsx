@@ -5,6 +5,7 @@ import {
   CHECKLIST,
   ECOSYSTEM,
   FEATURES,
+  LIFE_SCENES,
   PURPOSES,
   RISKS,
   SLIDES,
@@ -41,35 +42,92 @@ function Shell({
   );
 }
 
-export function Slide01() {
+/** 01 — OPENING: Bài thuyết trình của Tổ 6 */
+export function SlideOpening() {
   const m = SLIDES[0];
+  return (
+    <Shell id={m.id} theme={m.theme} label="Mở đầu">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        {["Xin chào", "Ổn nhé", "Gửi file", "OK"].map((t, i) => (
+          <span
+            key={t}
+            className="absolute rounded-2xl border border-[#0068FF]/10 bg-white/60 px-4 py-2 text-sm text-[#0068FF]/30"
+            style={{
+              left: `${8 + i * 24}%`,
+              top: `${12 + ((i * 29) % 70)}%`,
+              transform: `rotate(${-6 + i * 4}deg)`,
+            }}
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="relative mx-auto max-w-4xl text-center">
+        <p data-reveal className="text-xl font-extrabold tabular-nums text-[#0068FF] md:text-2xl">
+          TỔ 6
+        </p>
+        <h1
+          data-reveal
+          className="mt-6 text-[clamp(42px,6vw,96px)] font-extrabold leading-[1.05] tracking-tight"
+        >
+          BÀI THUYẾT TRÌNH
+        </h1>
+        <p data-reveal className="mt-4 text-[clamp(20px,2.4vw,32px)] font-bold tracking-[0.35em] text-[#667085]">
+          TIN HỌC
+        </p>
+        <p data-reveal className="mt-10 text-[clamp(64px,7vw,120px)] font-extrabold leading-none tracking-tight text-[#0068FF]">
+          ZALO
+        </p>
+        <p data-reveal className="mt-6 text-lg text-[#667085]">
+          WEB SLIDE · Designed by Đức Anh · 2026
+        </p>
+        <div data-reveal aria-hidden="true" className="mx-auto mt-10 h-1 w-40 origin-left overflow-hidden rounded-full bg-[#0068FF]/15">
+          <div className="h-full w-full origin-left animate-[linegrow_1.2s_ease-out_both] bg-[#0068FF]" />
+        </div>
+      </div>
+      <style>{`@keyframes linegrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }`}</style>
+    </Shell>
+  );
+}
+
+/** 02 — ZALO hero */
+export function SlideCover() {
+  const m = SLIDES[1];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} label="Cover">
       <img
         src="/home-banner.20ff632e.webp"
         alt=""
         aria-hidden="true"
+        data-depth="-8"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#F7F9FC]/60 via-transparent to-[#F7F9FC]" aria-hidden="true" />
-      <div className="relative mx-auto max-w-4xl text-center">
-        <p data-reveal className="text-xl font-bold tabular-nums text-[#0068FF] md:text-2xl">
-          2012 <span className="mx-2 text-[#667085]">→</span> 2026
-        </p>
-        <h1 data-reveal className="mt-4 text-[72px] font-extrabold leading-none tracking-tight md:text-[120px]">
+      <div className="relative mx-auto max-w-6xl text-center">
+        <h2 data-reveal className="text-[clamp(64px,7vw,120px)] font-extrabold leading-none tracking-tight">
           ZALO
-        </h1>
-        <p data-reveal className="mt-4 text-lg text-[#667085] md:text-2xl">
+        </h2>
+        <p data-reveal className="mt-4 text-[clamp(16px,1.6vw,24px)] text-[#667085]">
           Nhắn tin, gọi điện và hơn thế nữa
         </p>
         <p data-reveal className="mx-auto mt-4 max-w-2xl text-base text-[#667085] md:text-lg">
           Zalo bắt đầu là ứng dụng liên lạc trên điện thoại và dần mở rộng thành một nền tảng
           được dùng trong giao tiếp, học tập, công việc và dịch vụ số.
         </p>
-        <div data-reveal className="mt-10 flex justify-center">
-          <div className="animate-[floaty_6s_ease-in-out_infinite]">
-            <PhoneMockup />
+        <div className="mt-8 flex flex-col items-center gap-6 md:flex-row md:justify-center md:gap-12">
+          <p data-reveal className="text-2xl font-extrabold tabular-nums text-[#0068FF] md:order-1">
+            2012
+          </p>
+          <div data-reveal className="md:order-2">
+            <div data-depth="5">
+              <div className="animate-[floaty_6s_ease-in-out_infinite]">
+                <PhoneMockup rich />
+              </div>
+            </div>
           </div>
+          <p data-reveal className="text-2xl font-extrabold tabular-nums text-[#0068FF] md:order-3">
+            2026
+          </p>
         </div>
       </div>
       <style>{`@keyframes floaty { 0%,100% { transform: translateY(-8px);} 50% { transform: translateY(8px);} }`}</style>
@@ -77,12 +135,47 @@ export function Slide01() {
   );
 }
 
-export function Slide02() {
-  const m = SLIDES[1];
+/** 03 — ZALO LÀ GÌ? */
+export function SlideIntro() {
+  const m = SLIDES[2];
+  return (
+    <Shell id={m.id} theme={m.theme} source={m.source} label="Zalo là gì">
+      <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">03 · Định nghĩa</p>
+          <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
+            Zalo là gì?
+          </h2>
+          <p data-reveal className="mt-4 max-w-xl text-[clamp(16px,1.2vw,20px)] text-[#667085]">
+            Zalo là nền tảng liên lạc do VNG phát triển tại Việt Nam.
+          </p>
+          <p data-reveal className="mt-3 max-w-xl text-[clamp(16px,1.2vw,20px)] text-[#667085]">
+            Ứng dụng bắt đầu từ nhu cầu nhắn tin, gọi điện trên điện thoại và sau đó
+            mở rộng thêm nhiều tính năng phục vụ nhóm, công việc, doanh nghiệp và dịch vụ số.
+          </p>
+          <div data-reveal className="mt-6 flex flex-wrap gap-3">
+            {["LIÊN LẠC", "NHÓM", "DOANH NGHIỆP", "DỊCH VỤ"].map((k) => (
+              <span key={k} className="rounded-full bg-[#0068FF]/10 px-5 py-2 font-bold tracking-wide text-[#0068FF]">
+                {k}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div data-reveal className="flex justify-center">
+          <PhoneMockup />
+        </div>
+      </div>
+    </Shell>
+  );
+}
+
+/** 04 — LỊCH SỬ */
+export function SlideTimeline() {
+  const m = SLIDES[3];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} label="Zalo ra đời">
-      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">02 · Lịch sử</p>
-      <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight md:text-[64px]">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">04 · Lịch sử</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
         Từ thử nghiệm đến số 1
       </h2>
       <p className="mt-3 max-w-2xl text-lg text-[#667085]">VNG phát triển, làm cho người Việt dùng di động.</p>
@@ -106,12 +199,13 @@ export function Slide02() {
   );
 }
 
-export function Slide03() {
-  const m = SLIDES[2];
+/** 05 — MỤC ĐÍCH */
+export function SlidePurpose() {
+  const m = SLIDES[4];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} label="Zalo dùng để làm gì">
-      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">03 · Mục đích</p>
-      <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight md:text-[64px]">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">05 · Mục đích</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
         Zalo dùng để làm gì?
       </h2>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -130,7 +224,7 @@ export function Slide03() {
           </article>
         ))}
       </div>
-      <figure data-reveal className="mx-auto mt-8 max-w-2xl">
+      <figure data-reveal data-motion="clip" className="mx-auto mt-8 max-w-2xl">
         <img
           src="/tinh-nang-hay-tren-zalo-18_1280x720-800-resize.jpg"
           alt="Ảnh tham khảo giao diện hộp thư Zalo"
@@ -145,14 +239,42 @@ export function Slide03() {
   );
 }
 
-export function Slide04() {
-  const m = SLIDES[3];
+/** 06 — ĐẶC ĐIỂM NỔI BẬT */
+export function SlideFeatures() {
+  const m = SLIDES[5];
+  return (
+    <Shell id={m.id} theme={m.theme} source={m.source} label="Đặc điểm nổi bật">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">06 · Tính năng</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
+        Sáu thứ đáng nhớ
+      </h2>
+      <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3">
+        {FEATURES.map((f) => (
+          <article key={f.title} data-reveal className="card p-6 text-center md:p-8">
+            <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[#0068FF]/10 text-[#0068FF]">
+              <Icon name={f.icon} size={30} />
+            </span>
+            <h3 className="mt-4 text-xl font-extrabold tracking-wide">{f.title}</h3>
+            <p className="mt-1 text-[#667085]">{f.desc}</p>
+          </article>
+        ))}
+      </div>
+      <p data-reveal className="mx-auto mt-6 flex w-fit items-center gap-2 rounded-full bg-[#0068FF]/10 px-5 py-2 text-[#0068FF]">
+        <Sparkles size={18} /> 38% người dùng/tháng dùng tính năng AI · H1/2026
+      </p>
+    </Shell>
+  );
+}
+
+/** 07 — VÌ SAO PHỔ BIẾN (DATA HERO) */
+export function SlideData() {
+  const m = SLIDES[6];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} label="Vì sao phổ biến">
       <NetworkBg />
       <div className="relative mx-auto max-w-5xl text-center">
-        <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">04 · Số liệu</p>
-        <p data-reveal className="mt-4 text-[84px] font-extrabold leading-none tracking-tight tabular-nums md:text-[160px]">
+        <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">07 · Số liệu</p>
+        <p data-reveal className="mt-4 font-extrabold leading-none tracking-tight tabular-nums text-[clamp(72px,10vw,160px)]">
           <span data-counter="81.3" data-format="vi-1">81,3</span>M
         </p>
         <p data-reveal className="mt-2 text-xl font-semibold">Người dùng hoạt động hàng tháng · H1/2026</p>
@@ -195,38 +317,39 @@ export function Slide04() {
   );
 }
 
-export function Slide05() {
-  const m = SLIDES[4];
+/** 08 — ZALO TRONG ĐỜI SỐNG */
+export function SlideLife() {
+  const m = SLIDES[7];
   return (
-    <Shell id={m.id} theme={m.theme} source={m.source} label="Đặc điểm nổi bật">
-      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">05 · Tính năng</p>
-      <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight md:text-[64px]">
-        Sáu thứ đáng nhớ
+    <Shell id={m.id} theme={m.theme} label="Zalo trong đời sống">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">08 · Đời sống</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
+        Zalo xuất hiện ở đâu?
       </h2>
-      <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3">
-        {FEATURES.map((f) => (
-          <article key={f.title} data-reveal className="card p-6 text-center md:p-8">
-            <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[#0068FF]/10 text-[#0068FF]">
-              <Icon name={f.icon} size={30} />
-            </span>
-            <h3 className="mt-4 text-xl font-extrabold tracking-wide">{f.title}</h3>
-            <p className="mt-1 text-[#667085]">{f.desc}</p>
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {LIFE_SCENES.map((s) => (
+          <article key={s.title} data-reveal data-motion="clip" className="relative overflow-hidden rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+            <img src={s.img} alt={s.alt} loading="lazy" className="life-img aspect-[3/4] w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07111F]/85 via-[#07111F]/20 to-transparent" aria-hidden="true" />
+            <div className="absolute inset-x-0 bottom-0 p-5">
+              <h3 className="text-xl font-extrabold text-white">{s.title}</h3>
+              <p className="mt-1 text-white/80">{s.desc}</p>
+            </div>
           </article>
         ))}
       </div>
-      <p data-reveal className="mx-auto mt-6 flex w-fit items-center gap-2 rounded-full bg-[#0068FF]/10 px-5 py-2 text-[#0068FF]">
-        <Sparkles size={18} /> 38% người dùng/tháng dùng tính năng AI · H1/2026
-      </p>
+      <p className="mt-4 text-sm text-[#667085]/70">Ảnh: Pexels</p>
     </Shell>
   );
 }
 
-export function Slide06() {
-  const m = SLIDES[5];
+/** 09 — HỆ SINH THÁI */
+export function SlideEcosystem() {
+  const m = SLIDES[8];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} label="Hệ sinh thái">
-      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">06 · Hệ sinh thái</p>
-      <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight md:text-[64px]">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">09 · Hệ sinh thái</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
         Không chỉ là chat
       </h2>
       <p data-reveal className="mt-3 max-w-3xl text-lg text-[#667085]">
@@ -247,7 +370,7 @@ export function Slide06() {
             </div>
           ))}
         </div>
-        <div data-reveal className="mx-auto grid h-48 w-48 place-items-center overflow-hidden rounded-full border-4 border-white bg-white shadow-xl md:h-56 md:w-56">
+        <div data-reveal data-motion="scale" className="mx-auto grid h-48 w-48 place-items-center overflow-hidden rounded-full border-4 border-white bg-white shadow-xl md:h-56 md:w-56">
           <img src="/zalo-1-logo-png-transparent.png" alt="Logo Zalo" loading="lazy" className="h-2/3 w-2/3 object-contain" />
         </div>
         <div className="grid gap-5">
@@ -264,11 +387,15 @@ export function Slide06() {
           ))}
         </div>
       </div>
-      <p data-reveal className="mt-8 text-center text-xl">
-        <span className="font-extrabold tabular-nums text-[#0068FF]">~30.000</span>{" "}
-        <span className="text-[#667085]">OA đang hoạt động · 6/2026</span>
-      </p>
-      <figure data-reveal className="mx-auto mt-8 max-w-4xl">
+      <div data-reveal className="mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
+        <span className="rounded-full bg-[#0068FF]/10 px-4 py-1 font-bold text-[#0068FF]">OA</span>
+        <span className="rounded-full bg-[#0068FF]/10 px-4 py-1 font-bold text-[#0068FF]">MINI APP</span>
+        <span className="text-xl">
+          <span className="font-extrabold tabular-nums text-[#0068FF]">~30.000</span>{" "}
+          <span className="text-[#667085]">OA đang hoạt động · 6/2026</span>
+        </span>
+      </div>
+      <figure data-reveal data-motion="clip" className="mx-auto mt-8 max-w-4xl">
         <img
           src="/people.1648f8db.webp"
           alt="Đời sống số trong hệ sinh thái Zalo"
@@ -281,20 +408,30 @@ export function Slide06() {
   );
 }
 
-export function Slide07() {
-  const m = SLIDES[6];
+/** 10 — LỢI ÍCH (01 lớn + 3 nhỏ) */
+export function SlideBenefits() {
+  const m = SLIDES[9];
+  const [first, ...rest] = BENEFITS;
   return (
     <Shell id={m.id} theme={m.theme} label="Lợi ích">
-      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">07 · Lợi ích</p>
-      <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight md:text-[64px]">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#0068FF]">10 · Lợi ích</p>
+      <h2 data-reveal className="mt-2 text-[clamp(42px,4vw,72px)] font-extrabold tracking-tight">
         Được gì khi dùng?
       </h2>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        {BENEFITS.map((b) => (
+      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <article data-reveal className="card overflow-hidden lg:col-span-3 lg:grid lg:grid-cols-[40%_1fr]">
+          <img src={first.img} alt={first.alt} loading="lazy" className="aspect-video h-full w-full object-cover" />
+          <div className="flex items-center gap-4 p-6 md:p-8">
+            <span className="text-6xl font-extralight tabular-nums text-[#0068FF]/40">{first.no}</span>
+            <div>
+              <h3 className="text-3xl font-extrabold">{first.title}</h3>
+              <p className="mt-2 text-lg text-[#667085]">{first.desc}</p>
+            </div>
+          </div>
+        </article>
+        {rest.map((b) => (
           <article key={b.no} data-reveal className="card overflow-hidden">
-            <figure>
-              <img src={b.img} alt={b.alt} loading="lazy" className="aspect-video w-full object-cover" />
-            </figure>
+            <img src={b.img} alt={b.alt} loading="lazy" className="aspect-video w-full object-cover" />
             <div className="flex items-start gap-3 p-5">
               <span className="text-4xl font-extralight tabular-nums text-[#0068FF]/40">{b.no}</span>
               <div>
@@ -302,16 +439,17 @@ export function Slide07() {
                 <p className="mt-1 text-[#667085]">{b.desc}</p>
               </div>
             </div>
-            <p className="px-5 pb-3 text-xs text-[#667085]/70">Ảnh: Pexels</p>
           </article>
         ))}
       </div>
+      <p className="mt-4 text-sm text-[#667085]/70">Ảnh: Pexels</p>
     </Shell>
   );
 }
 
-export function Slide08() {
-  const m = SLIDES[7];
+/** 11 — MẶT TRÁI */
+export function SlideRisks() {
+  const m = SLIDES[10];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} dark label="Mặt trái">
       <div className="grid items-center gap-10 lg:grid-cols-[40%_60%]">
@@ -346,8 +484,9 @@ export function Slide08() {
   );
 }
 
-export function Slide09() {
-  const m = SLIDES[8];
+/** 12 — DÙNG ZALO THÔNG MINH */
+export function SlideSafety() {
+  const m = SLIDES[11];
   return (
     <Shell id={m.id} theme={m.theme} source={m.source} dark label="Sử dụng thông minh">
       <div className="grid items-center gap-10 lg:grid-cols-[45%_55%]">
@@ -364,9 +503,9 @@ export function Slide09() {
           </figure>
         </div>
         <div>
-          <p className="text-sm font-bold uppercase tracking-widest text-[#8AB4FF]">09 · An toàn</p>
-          <h2 data-reveal className="mt-2 text-5xl font-extrabold tracking-tight text-white md:text-[56px]">
-            Checklist 6 điều
+          <p className="text-sm font-bold uppercase tracking-widest text-[#8AB4FF]">12 · An toàn</p>
+          <h2 data-reveal className="mt-2 text-[clamp(36px,3.4vw,56px)] font-extrabold tracking-tight text-white">
+            Dùng Zalo thông minh
           </h2>
           <ol className="mt-8 space-y-4">
             {CHECKLIST.map((c, i) => (
@@ -387,8 +526,9 @@ export function Slide09() {
   );
 }
 
-export function Slide10() {
-  const m = SLIDES[9];
+/** 13 — ENDING */
+export function SlideEnding() {
+  const m = SLIDES[12];
   return (
     <Shell id={m.id} theme={m.theme} label="Kết thúc">
       <img
@@ -401,15 +541,15 @@ export function Slide10() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#F7F9FC]/70 via-transparent to-[#F7F9FC]" aria-hidden="true" />
       <div className="relative mx-auto max-w-2xl text-center">
         <img data-reveal src="/zalo-1-logo-png-transparent.png" alt="Logo Zalo" loading="lazy" className="mx-auto h-16 object-contain md:h-20" />
-        <h2 data-reveal className="mt-4 text-[64px] font-extrabold leading-none tracking-tight md:text-[96px]">
+        <h2 data-reveal className="mt-4 text-[clamp(56px,6vw,96px)] font-extrabold leading-none tracking-tight">
           ZALO
         </h2>
         <p data-reveal className="mt-4 text-xl text-[#667085]">
           Kết nối con người. Kết nối cuộc sống.
         </p>
         <p data-reveal className="mx-auto mt-6 max-w-xl text-lg text-[#667085]">
-          Zalo đem lại nhiều tiện ích trong giao tiếp, học tập và công việc,
-          nhưng hiệu quả phụ thuộc vào cách người dùng sử dụng.
+          Zalo mang lại nhiều tiện ích trong giao tiếp, học tập và công việc. Bên cạnh đó,
+          người dùng cần chú ý đến bảo mật, thông tin cá nhân và những rủi ro trên môi trường mạng.
         </p>
         <div data-reveal className="card mx-auto mt-10 max-w-2xl p-6 text-left md:p-8">
           <p className="text-center text-sm font-bold uppercase tracking-widest text-[#0068FF]">
@@ -432,6 +572,7 @@ export function Slide10() {
         <div data-reveal className="mt-10 space-y-1 text-sm text-[#667085]">
           <p className="font-semibold text-[#111827]">Bài thuyết trình của Tổ 6</p>
           <p>WEB SLIDE</p>
+          <p>Designed by Đức Anh</p>
         </div>
       </div>
     </Shell>

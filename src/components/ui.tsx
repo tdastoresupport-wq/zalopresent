@@ -68,12 +68,12 @@ export function Icon({ name, size = 24, className }: { name: string; size?: numb
 }
 
 /** Phone dựng bằng CSS + fragment UI recreate (ASSET LOCK: không screenshot gốc). */
-export function PhoneMockup({ dark, warn }: { dark?: boolean; warn?: boolean }) {
+export function PhoneMockup({ dark, warn, rich }: { dark?: boolean; warn?: boolean; rich?: boolean }) {
   return (
     <div
       role="img"
       aria-label={warn ? "Điện thoại hiện tin nhắn lừa đảo minh họa" : "Điện thoại hiện màn hình chat Zalo minh họa"}
-      className={`relative w-[280px] rounded-[28px] border p-2 shadow-[0_8px_24px_rgba(0,0,0,0.06)] md:w-[340px] ${
+      className={`relative w-[min(280px,64vw)] rounded-[28px] border p-2 shadow-[0_8px_24px_rgba(0,0,0,0.06)] md:w-[340px] ${
         dark ? "border-white/15 bg-[#0E1B2A]" : "border-[#E5E7EB] bg-white"
       }`}
     >
@@ -91,13 +91,28 @@ export function PhoneMockup({ dark, warn }: { dark?: boolean; warn?: boolean }) 
           </div>
         ) : (
           <div className="space-y-2 text-left text-[13px]">
-            <p className={`w-fit rounded-xl p-2 ${dark ? "bg-white/10 text-white" : "bg-white text-[#111827] shadow-sm"}`}>
-              Xin chào
-            </p>
-            <p className="w-fit rounded-xl bg-[#0068FF] p-2 text-white">Bạn đến chưa?</p>
-            <p className={`w-fit rounded-xl p-2 ${dark ? "bg-white/10 text-white" : "bg-white text-[#111827] shadow-sm"}`}>
-              File đây nhé
-            </p>
+            <div>
+              <p className={`w-fit rounded-2xl rounded-bl-md p-2 ${dark ? "bg-white/10 text-white" : "bg-white text-[#111827] shadow-sm"}`}>
+                Xin chào
+              </p>
+              {rich && <p className={`mt-0.5 text-[11px] ${dark ? "text-white/50" : "text-[#667085]"}`}>09:41</p>}
+            </div>
+            <div className="ml-8">
+              <p className="w-fit rounded-2xl rounded-br-md bg-[#0068FF] p-2 text-white">Bạn đến chưa?</p>
+              {rich && <p className="mt-0.5 text-right text-[11px] text-[#667085]">09:42 · Đã xem</p>}
+            </div>
+            <div>
+              <p className={`w-fit rounded-2xl rounded-bl-md p-2 ${dark ? "bg-white/10 text-white" : "bg-white text-[#111827] shadow-sm"}`}>
+                File đây nhé
+              </p>
+            </div>
+            {rich && (
+              <p className={`flex w-fit items-center gap-1 rounded-2xl rounded-bl-md p-2 ${dark ? "bg-white/10" : "bg-white shadow-sm"}`} aria-hidden="true">
+                <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#0068FF]" />
+                <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#0068FF] [animation-delay:0.15s]" />
+                <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#0068FF] [animation-delay:0.3s]" />
+              </p>
+            )}
           </div>
         )}
       </div>
