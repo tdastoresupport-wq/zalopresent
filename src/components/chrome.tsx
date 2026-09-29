@@ -1,5 +1,5 @@
 import { Maximize, Minimize } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SLIDES } from "../data/slides";
 
 export function Nav({ active }: { active: number }) {
@@ -79,11 +79,47 @@ export function ProgressDots({ active }: { active: number }) {
   );
 }
 
-export function SourceNote({ text, dark }: { text?: string; dark?: boolean }) {
-  if (!text) return null;
+export function Cursor() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
+    let big = false;
+    const move = (e: MouseEvent) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${big ? 4 : 1})`;
+      });
+    };
+    const over = (e: MouseEvent) => {
+      big = (e.target as HTMLElement | null)?.closest("button, a") !== null;
+    };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseover", over);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseover", over);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      aria-hidden="true"
+      className="cursor-dot pointer-events-none fixed left-[-4px] top-[-4px] z-[60] hidden h-2 w-2 rounded-full bg-[#0068FF]/70 [@media(pointer:fine)]:block"
+    />
+  );
+}
+
+export function SourceNote({ text, dark }: { text?: string; dark?: boolean }) {  if (!text) return null;
   return (
     <p
-      className={`absolute bottom-5 right-5 text-[12px] md:bottom-6 md:right-12 md:text-[13px] ${
+      className={`absolute inset-x-5 bottom-4 text-center text-[12px] md:inset-x-auto md:bottom-6 md:right-12 md:text-left md:text-[13px] ${
         dark ? "text-white/60" : "text-[#667085]/70"
       }`}
     >

@@ -80,6 +80,7 @@ body {
 }
 
 .slide {
+  min-height: 100vh;
   min-height: 100svh;
   width: 100%;
   scroll-snap-align: start;
@@ -93,15 +94,36 @@ body {
   max-width: 1440px;
   /* margin auto: vừa thì canh giữa, dài thì tràn xuống dưới, không tràn lên đè nav */
   margin: auto;
-  padding-inline: 80px;
-  padding-block: 72px;
+  padding-inline: clamp(20px, 4vw, 80px);
+  padding-block: clamp(48px, 7vh, 88px);
+  padding-top: calc(clamp(48px, 7vh, 88px) + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(clamp(48px, 7vh, 88px) + env(safe-area-inset-bottom, 0px));
 }
 
-@media (max-width: 1279px) {
-  .wrap { padding-inline: 48px; }
+/* Màn chiếu lùn / laptop nhỏ: nén khoảng dọc, giữ chữ đọc được */
+@media (max-height: 800px) {
+  .wrap {
+    padding-block: clamp(32px, 5vh, 56px);
+  }
 }
-@media (max-width: 767px) {
-  .wrap { padding-inline: 20px; padding-block: 56px; }
+
+/* Màn rất lùn: ảnh life thấp xuống, không giấu nội dung */
+@media (max-height: 650px) {
+  .life-img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Debug visual: ?debug=1 */
+.deck-debug section {
+  outline: 1px dashed rgba(255, 0, 0, 0.5);
+  outline-offset: -1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot {
+    display: none !important;
+  }
 }
 
 [data-theme="dark"], [data-theme="security"] { color: #fff; }
